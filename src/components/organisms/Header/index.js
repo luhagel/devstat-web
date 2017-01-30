@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { IconLink, PrimaryNavigation, Block } from 'components'
+import { UserButton } from 'containers'
 
 const Wrapper = styled(Block)`
   display: flex;
@@ -28,6 +29,7 @@ const Header = (props) => {
     <Wrapper {...props}>
       <StyledIconLink to="/" icon="devstat" height={100} />
       <StyledPrimaryNavigation />
+      <UserButton />
     </Wrapper>
   )
 }
