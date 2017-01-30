@@ -8,7 +8,7 @@ const config = {
   all: {
     env: process.env.NODE_ENV || 'development',
     baseUrl: `http://${ip}:${port}`,
-    apiUrl: 'locLhost:9000',
+    apiUrl: 'localhost:9000',
     browser,
     ip,
     port
