@@ -19,13 +19,9 @@ const App = ({ children }) => {
         meta={[
           { name: 'description', content: 'Identify and Hire top developers - without the hazzle.' },
           { property: 'og:site_name', content: 'DevStat' },
-          { property: 'og:image', content: 'https://diegohaz.github.io/arc/thumbnail.png' },
-          { property: 'og:image:type', content: 'image/png' },
-          { property: 'og:image:width', content: '1200' },
-          { property: 'og:image:height', content: '630' }
         ]}
         link={[
-          { rel: 'icon', href: 'https://diegohaz.github.io/arc/icon.png' }
+          { rel: 'icon', href: '../../public/icon.png' }
         ]}
       />
       <ThemeProvider theme={theme}>
