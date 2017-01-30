@@ -4,6 +4,11 @@
     "react-hot-loader/babel"
   ],
   "env": {
+    "development": {
+      "plugins": [
+        "react-fix-it"
+      ]
+    },
     "production": {
       "plugins": [
         "transform-react-remove-prop-types"

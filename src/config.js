@@ -8,7 +8,7 @@ const config = {
   all: {
     env: process.env.NODE_ENV || 'development',
     baseUrl: `http://${ip}:${port}`,
-    apiUrl: 'https://devstat-core.herokuapp.com',
+    apiUrl: 'locLhost:9000',
     browser,
     ip,
     port
