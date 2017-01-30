@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react'
-import { injectGlobal } from 'styled-components'
+import { injectGlobal, ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
+
+import theme from './themes/default'
 
 injectGlobal`
   body {
@@ -12,11 +14,11 @@ const App = ({ children }) => {
   return (
     <div>
       <Helmet
-        title="Atomic React"
-        titleTemplate="ARc - %s"
+        title="Dev-Stat.us"
+        titleTemplate="DevStat - %s"
         meta={[
-          { name: 'description', content: 'React starter kit based on Atomic Design with React Router v4, Webpack, Redux, Server Side Rendering and more.' },
-          { property: 'og:site_name', content: 'ARc' },
+          { name: 'description', content: 'Identify and Hire top developers - without the hazzle.' },
+          { property: 'og:site_name', content: 'DevStat' },
           { property: 'og:image', content: 'https://diegohaz.github.io/arc/thumbnail.png' },
           { property: 'og:image:type', content: 'image/png' },
           { property: 'og:image:width', content: '1200' },
@@ -26,7 +28,9 @@ const App = ({ children }) => {
           { rel: 'icon', href: 'https://diegohaz.github.io/arc/icon.png' }
         ]}
       />
-      {children}
+      <ThemeProvider theme={theme}>
+        {children}
+      </ThemeProvider>
     </div>
   )
 }

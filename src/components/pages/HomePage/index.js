@@ -1,10 +1,12 @@
 import React from 'react'
 
-import { PageTemplate } from 'components'
+import { PageTemplate, Header } from 'components'
 
 const HomePage = () => {
   return (
-    <PageTemplate>Hello World</PageTemplate>
+    <PageTemplate header={<Header />}>
+      Hey There!
+    </PageTemplate>
   )
 }
 
