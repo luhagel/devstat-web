@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Paragraph, Link, Icon } from 'components'
+import { Paragraph, Link } from 'components'
 
 const Wrapper = styled.div`
-  background-color: ${palette('grayscale', 1, true)};
+  background-color: ${palette('grayscale', 0, true)};
   padding: 1.5rem;
 `
 
