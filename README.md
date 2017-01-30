@@ -1,23 +1,23 @@
 <p align="center">
   <img width="206" alt="arclogo2" src="https://cloud.githubusercontent.com/assets/3068563/19498653/f9b73170-9570-11e6-9183-61dce798abab.png"><br><br>
 
-  <a href="https://travis-ci.org/diegohaz/arc"><img src="https://img.shields.io/travis/diegohaz/arc/redux.svg?style=flat-square" alt="Build Status" /></a>
-  <a href="https://codecov.io/gh/diegohaz/arc/branch/redux"><img src="https://img.shields.io/codecov/c/github/diegohaz/arc/redux.svg?style=flat-square" alt="Coverage Status" /></a>
+  <a href="https://travis-ci.org/diegohaz/arc"><img src="https://img.shields.io/travis/diegohaz/arc/universal-redux.svg?style=flat-square" alt="Build Status" /></a>
+  <a href="https://codecov.io/gh/diegohaz/arc/branch/universal-redux"><img src="https://img.shields.io/codecov/c/github/diegohaz/arc/universal-redux.svg?style=flat-square" alt="Coverage Status" /></a>
   <a href="https://gitter.im/atomic-react/Lobby"><img src="https://img.shields.io/badge/gitter-join%20chat-1dce73.svg?style=flat-square" alt="Gitter chat" /></a>
 </p>
 
-## Redux
+## Universal Redux
 
-This branch adds [redux](https://github.com/reactjs/redux), [redux-saga](https://github.com/yelouafi/redux-saga) and [redux-form](https://github.com/erikras/redux-form) to the [master](https://github.com/diegohaz/arc) branch.
+This branch adds [Server Side Rendering](https://github.com/reactjs/redux/blob/master/docs/recipes/ServerRendering.md) to the [redux](https://github.com/diegohaz/arc/tree/redux) branch.
 
-See the [demo](https://arc.js.org).
+See the [demo](https://arc.diegohaz.com). (*Disable javascript to see the magic*)
 
 ## Download
 
 Just clone the repository and remove the `.git` folder:
 
 ```sh
-$ git clone -b redux https://github.com/diegohaz/arc my-app
+$ git clone -b universal-redux https://github.com/diegohaz/arc my-app
 $ cd my-app
 $ rm -rf .git
 $ npm install # or yarn
@@ -34,14 +34,44 @@ $ npm install # or yarn
 - [Containers](#containers)
 - [Store](#store)
   - [Store naming conventions](#store-naming-conventions)
-
+- [Universal](#universal)
+  
 ### Run
 
-Once you have installed the dependencies, you can use `npm start` to run a development server.
+Once you have installed the dependencies, you can use `npm run dev` to run a development server.
 
 ### Deploy
 
 Use `npm run build` to transpile the code into the `dist` folder. Then, you can deploy it everywhere.
+
+Example on [Heroku](https://heroku.com/) using [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line):
+
+```sh
+# start a new local git repository
+git init
+
+# create a new heroku app
+heroku apps:create my-new-app
+
+# add heroku remote reference to the local repository
+heroku git:remote --app my-new-app
+
+# commit and push the files
+git add -A
+git commit -m "Initial commit"
+git push heroku master
+
+# open the deployed app in the browser
+heroku open
+```
+
+The second time you deploy, you just need to:
+
+```sh
+git add -A
+git commit -m "Update code"
+git push heroku master
+```
 
 ### Source code
 
@@ -191,6 +221,49 @@ The store on this boilerplate follows some naming conventions. You don't need to
 - `actions` should start with the store name (e.g. `MODAL_OPEN` for `modal` store, `POST_LIST_REQUEST` for `post` store) and end with `REQUEST`, `SUCCESS` or `FAILURE` if this is an async operation;
 - `action creators` should have the same name of their respective actions, but in camelCase (e.g. `modalOpen`). Async actions should group `request`, `success` and `failure` in a object (e.g. `postList.request`, `postList.success`, `postList.failure`);
 - `worker sagas` should start with the operation name (e.g. `openModal`, `requestPostList`).
+
+### Universal
+```js
+component &&
+component[method] &&
+promises.push(component[method]({ req, res, params, location, store }))
+```
+
+This code is present in `src/server.js` and it will call `Component.method()` for the requested Page container, where `method` is the name of the HTTP method used in the request (`get`, `post` etc.).
+
+```js
+import React, { Component } from 'react'
+import submit from 'redux-form-submit'
+import { postList } from 'store'
+
+import { SamplePage } from 'components'
+import { config } from './PostForm'
+
+class SamplePageContainer extends Component {
+  // called when POST /sample-page
+  static post ({ req, store }) {
+    return Promise.all([
+      this.get({ store }),
+      store.dispatch(submit(config, req.body))
+    ])
+  }
+
+  // called when GET /sample-page
+  static get ({ store }) {
+    return new Promise((resolve, reject) => {
+      store.dispatch(postList.request(15, resolve, reject))
+    })
+  }
+
+  render () {
+    return <SamplePage />
+  }
+}
+
+export default SamplePageContainer
+```
+
+In order to make the forms work on the server side, this is combined with [redux-form](https://github.com/erikras/redux-form) and [redux-form-submit](https://github.com/diegohaz/redux-form-submit).
 
 ## Contributing
 

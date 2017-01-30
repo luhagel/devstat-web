@@ -1,17 +1,17 @@
 import axios from 'axios'
 
-const devstat = {}
+const facade = {}
 
 const api = axios.create({ baseURL: 'https://devstat-core.herokuapp.com' })
 
-devstat.request = (config) => api.request(config)
+facade.request = (config) => api.request(config)
 
 ;['delete', 'get', 'head'].forEach((method) => {
-  devstat[method] = (url, config) => devstat.request({ ...config, method, url })
+  facade[method] = (url, config) => facade.request({ ...config, method, url })
 })
 
 ;['post', 'put', 'patch'].forEach((method) => {
-  devstat[method] = (url, data, config) => devstat.request({ ...config, method, url, data })
+  facade[method] = (url, data, config) => facade.request({ ...config, method, url, data })
 })
 
-export default devstat
+export default facade
