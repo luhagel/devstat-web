@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Paragraph, Link } from 'components'
+import { Paragraph } from 'components'
 
 const Wrapper = styled.div`
   background-color: ${palette('primary', 3, true)};
