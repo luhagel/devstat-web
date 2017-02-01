@@ -14,8 +14,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  onClose: () => dispatch(modalHide('login')),
-  handleSubmit: (data) => dispatch(devstatLogin.request(data))
+  onClose: () => dispatch(modalHide('login'))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginModalContainer)

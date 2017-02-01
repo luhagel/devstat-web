@@ -3,11 +3,11 @@ import { devstatLogin } from './actions'
 
 import api from '../../services/api'
 
-export function* devstatLoginAsync(action) {
+export function* devstatLoginAsync() {
   try {
     const response = yield call(api.post, '/auth', {}, { auth: {
-      username: action.username,
-      password: action.password
+      username: 'luca@luhagel.tech',
+      password: 'DEVeriejel3'
     }
     })
     const user = response.data.user

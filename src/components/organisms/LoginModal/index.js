@@ -14,8 +14,7 @@ const Wrapper = styled.div`
 class LoginModal extends Component {
   static propTypes = {
     user: PropTypes.object,
-    onClose: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
