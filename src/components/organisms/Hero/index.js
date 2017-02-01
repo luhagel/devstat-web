@@ -19,6 +19,14 @@ const Wrapper = styled(Block)`
   }
 `
 
+const Brand = styled(Heading)`
+  font-size: 5em;
+`
+
+const Slug = styled(Heading)`
+  font-size: 2.5em;
+`
+
 const Text = styled(Paragraph)`
   color: ${palette('grayscale', 0)}
   margin: 3rem auto;
@@ -39,8 +47,8 @@ const StyledButton = styled(Button)`
 const Hero = (props) => {
   return (
     <Wrapper {...props}>
-      <Heading>DevStat.io</Heading>
-      <Heading level={2}>Hire Top Developers - Without The Hazzle</Heading>
+      <Brand>DevStat.io</Brand>
+      <Slug level={2}>Hire Top Developers - Without The Hazzle</Slug>
       <Text>
         <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
       </Text>
