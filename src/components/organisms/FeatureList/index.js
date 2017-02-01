@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Feature, Link, Heading } from 'components'
+import { Feature, Heading } from 'components'
 
 const Grid = styled.div`
   display: flex;
@@ -48,7 +48,7 @@ const FeatureList = ({ ...props }) => (
         icon="jest"
         title="Centralized Management"
       >
-        Sort and search for your recruitees however you like! Position? Skills? Team? We got you covered! 
+        Sort and search for your recruitees however you like! Position? Skills? Team? We got you covered!
       </StyledFeature>
     </Grid>
   </div>
