@@ -21,7 +21,7 @@ const App = ({ children }) => {
           { property: 'og:site_name', content: 'DevStat' },
         ]}
         link={[
-          { rel: 'icon', href: '../../public/icon.png' }
+          { rel: 'icon', href: '/public/icon.png' }
         ]}
       />
       <ThemeProvider theme={theme}>

@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import styled from 'styled-components'
 
-import { IconButton } from 'components'
-import { Modal } from 'containers'
+import { Modal, LoginForm } from 'containers'
 
 const Wrapper = styled.div`
   display: flex;
@@ -15,9 +14,8 @@ const Wrapper = styled.div`
 class LoginModal extends Component {
   static propTypes = {
     user: PropTypes.object,
-    onFacebookLogin: PropTypes.func.isRequired,
-    onGoogleLogin: PropTypes.func.isRequired,
-    onClose: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,12 +25,11 @@ class LoginModal extends Component {
   }
 
   render() {
-    const { onFacebookLogin, onGoogleLogin, ...props } = this.props
+    const { handleSubmit, ...props } = this.props
     return (
-      <Modal title="Login" name="login" closeable {...props}>
+      <Modal title="Login | Register" name="login" closeable {...props}>
         <Wrapper>
-          <IconButton onClick={onFacebookLogin} icon="facebook">Connect with Facebook</IconButton>
-          <IconButton onClick={onGoogleLogin} icon="google">Connect with Google</IconButton>
+          <LoginForm handleSubmit={this.props.handleSubmit} />
         </Wrapper>
       </Modal>
     )

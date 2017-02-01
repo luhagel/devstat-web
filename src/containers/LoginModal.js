@@ -1,37 +1,21 @@
-import React, { PropTypes, Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import { fbAppId, googleClientId } from 'config'
-import { fromSocial } from 'store/selectors'
-import { socialLogin, modalHide } from 'store/actions'
 
+import { modalHide, devstatLogin } from 'store/actions'
+import { fromUser } from 'store/selectors'
 import { LoginModal } from 'components'
 
-class LoginModalContainer extends Component {
-  static propTypes = {
-    prepareGoogle: PropTypes.func.isRequired,
-    prepareFacebook: PropTypes.func.isRequired
-  }
-
-  componentDidMount() {
-    this.props.prepareGoogle()
-    this.props.prepareFacebook()
-  }
-
-  render() {
-    return <LoginModal {...this.props} />
-  }
+const LoginModalContainer = (props) => {
+  return <LoginModal {...props} />
 }
 
 const mapStateToProps = (state) => ({
-  user: fromSocial.getUser(state)
+  user: fromUser.getUser(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  prepareGoogle: () => dispatch(socialLogin.prepare('google', { client_id: googleClientId })),
-  prepareFacebook: () => dispatch(socialLogin.prepare('facebook', { appId: fbAppId })),
-  onFacebookLogin: () => dispatch(socialLogin.request('facebook')),
-  onGoogleLogin: () => dispatch(socialLogin.request('google')),
-  onClose: () => dispatch(modalHide('login'))
+  onClose: () => dispatch(modalHide('login')),
+  handleSubmit: (data) => dispatch(devstatLogin.request(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginModalContainer)

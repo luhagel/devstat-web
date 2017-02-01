@@ -20,7 +20,7 @@ const UserButton = ({ user, onLogin, onLogout, ...props }) => {
         <Button {...props} onClick={onLogout}>
           <InnerButton>
             <Image src={user.picture} width={20} height={20} />
-            Sign out
+            Sign out {user.name}
           </InnerButton>
         </Button>
       }

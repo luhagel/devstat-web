@@ -2,12 +2,11 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import LoginModal from '.'
 
-const onFacebookLogin = jest.fn()
-const onGoogleLogin = jest.fn()
+const onLogin = jest.fn()
 const onClose = jest.fn()
 
 const wrap = (props = {}) =>
-  shallow(<LoginModal {...{ onFacebookLogin, onGoogleLogin, onClose }} {...props} />)
+  shallow(<LoginModal {...{ onLogin, onClose }} {...props} />)
 
 it('renders props when passed in', () => {
   const wrapper = wrap({ id: 'foo' })
