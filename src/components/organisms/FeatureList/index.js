@@ -27,25 +27,25 @@ const FeatureList = ({ ...props }) => (
     <StyledHeading>Why Devstat?</StyledHeading>
     <Grid>
       <StyledFeature
-        icon="react"
+        icon="profile"
         title="Easier Recruitment"
       >
         Get an overview of all your potential recruits by providing some basic info about them. We will do all the hard work of researching and compiling everything.
       </StyledFeature>
       <StyledFeature
-        icon="react-router"
+        icon="clock"
         title="No More Busywork"
       >
         Stop searching on dozens of sites for your recruiteses activity. DevStat pulls all of that into one, centralized plae. Get back to concentrating on the important things!
       </StyledFeature>
       <StyledFeature
-        icon="webpack"
+        icon="stats-bars"
         title="Actionable Reports"
       >
         Get an in-depth summary of each developer, for example: How often do they push code? Is their code tested? Which languages and frameworks do they use? Have they written any articles?
       </StyledFeature>
       <StyledFeature
-        icon="jest"
+        icon="enter"
         title="Centralized Management"
       >
         Sort and search for your recruitees however you like! Position? Skills? Team? We got you covered!
