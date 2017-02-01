@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Block, Paragraph, IconLink, Button, Heading, Tooltip } from 'components'
+import { Block, Paragraph, Button, Heading, Tooltip } from 'components'
 
 
 const Wrapper = styled(Block)`
