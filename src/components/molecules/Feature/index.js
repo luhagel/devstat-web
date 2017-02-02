@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import { palette } from 'styled-theme'
 
 import { Icon, Link, Paragraph, Heading, Badge } from 'components'
 
@@ -12,6 +13,7 @@ const Wrapper = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
+  color: ${palette('primary', 0)};
   flex: none;
 `
 
