@@ -32,7 +32,7 @@ const Header = (props) => {
     <Wrapper {...props}>
       <StyledIconLink to="/" icon="logo" height={100} reverse />
       <StyledPrimaryNavigation />
-      <UserButton />
+      {!process.env.LOGIN_DISABLED && <UserButton />}
     </Wrapper>
   )
 }
