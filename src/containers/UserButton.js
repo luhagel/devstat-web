@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { modalShow, devstatLogout } from 'store/actions'
+import { modalShow, userLogout } from 'store/actions'
 import { fromUser } from 'store/selectors'
 
 import { UserButton } from 'components'
@@ -14,7 +14,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onLogin: () => dispatch(modalShow('login')),
-  onLogout: () => dispatch(devstatLogout())
+  onLogout: () => dispatch(userLogout())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserButtonContainer)

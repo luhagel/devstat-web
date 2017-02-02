@@ -1,22 +1,22 @@
 import * as actions from './actions'
 
-test('devstatLogin', () => {
-  expect(actions.devstatLogin.request(1)).toEqual({
-    type: actions.DEVSTAT_LOGIN_REQUEST,
+test('userLogin', () => {
+  expect(actions.userLogin.request(1)).toEqual({
+    type: actions.USER_LOGIN_REQUEST,
     options: 1
   })
 
-  expect(actions.devstatLogin.success(1)).toEqual({
-    type: actions.DEVSTAT_LOGIN_SUCCESS,
+  expect(actions.userLogin.success(1)).toEqual({
+    type: actions.USER_LOGIN_SUCCESS,
     user: 1
   })
 
-  expect(actions.devstatLogin.failure('test')).toEqual({
-    type: actions.DEVSTAT_LOGIN_FAILURE,
+  expect(actions.userLogin.failure('test')).toEqual({
+    type: actions.USER_LOGIN_FAILURE,
     error: 'test'
   })
 })
 
-test('devstatLogout', () => {
-  expect(actions.devstatLogout()).toEqual({ type: actions.DEVSTAT_LOGOUT })
+test('userLogout', () => {
+  expect(actions.userLogout()).toEqual({ type: actions.USER_LOGOUT })
 })

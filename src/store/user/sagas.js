@@ -1,5 +1,5 @@
 import { take, put, call, fork } from 'redux-saga/effects'
-import { devstatLogin } from './actions'
+import { userLogin } from './actions'
 
 import api from '../../services/api'
 
@@ -11,14 +11,14 @@ export function* devstatLoginAsync(options) {
     }
     })
     const user = response.data
-    yield put(devstatLogin.success({ user }))
+    yield put(userLogin.success({ user }))
   } catch (e) {
-    yield put(devstatLogin.failure(e))
+    yield put(userLogin.failure(e))
   }
 }
 
 export function* watchDevstatLogin() {
-  const { options } = yield take('DEVSTAT_LOGIN_REQUEST')
+  const { options } = yield take('USER_LOGIN_REQUEST')
   yield call(devstatLoginAsync, options)
 }
 

@@ -1,13 +1,13 @@
-export const DEVSTAT_LOGIN = 'DEVSTAT_LOGIN'
-export const DEVSTAT_LOGIN_REQUEST = 'DEVSTAT_LOGIN_REQUEST'
-export const DEVSTAT_LOGIN_SUCCESS = 'DEVSTAT_LOGIN_SUCCESS'
-export const DEVSTAT_LOGIN_FAILURE = 'DEVSTAT_LOGIN_FAILURE'
-export const DEVSTAT_LOGOUT = 'DEVSTAT_LOGOUT'
+export const USER_LOGIN = 'USER_LOGIN'
+export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST'
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS'
+export const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE'
+export const USER_LOGOUT = 'USER_LOGOUT'
 
-export const devstatLogin = {
-  request: (options) => ({ type: DEVSTAT_LOGIN_REQUEST, options }),
-  success: (user) => ({ type: DEVSTAT_LOGIN_SUCCESS, user }),
-  failure: (error) => ({ type: DEVSTAT_LOGIN_FAILURE, error })
+export const userLogin = {
+  request: (options) => ({ type: USER_LOGIN_REQUEST, options }),
+  success: (user) => ({ type: USER_LOGIN_SUCCESS, user }),
+  failure: (error) => ({ type: USER_LOGIN_FAILURE, error })
 }
 
-export const devstatLogout = () => ({ type: DEVSTAT_LOGOUT })
+export const userLogout = () => ({ type: USER_LOGOUT })

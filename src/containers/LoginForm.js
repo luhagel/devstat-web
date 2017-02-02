@@ -3,16 +3,17 @@ import React from 'react'
 import { reduxForm } from 'redux-form'
 import { LoginForm } from 'components'
 
-import { devstatLogin } from 'store/actions'
+import { userLogin } from 'store/actions'
 
 const LoginFormContainer = props => <LoginForm {...props} />
 
 const onSubmit = (values, dispatch) => {
-  console.log('submitted')
   if (!values.username) {
-    throw { username: 'please provide input' }
+    throw new Error({ username: 'Please enter your email address' })
+  } else if (!values.password) {
+    throw new Error({ password: 'Please enter your password' })
   } else {
-    dispatch(devstatLogin.request(values))
+    dispatch(userLogin.request(values))
   }
 }
 
