@@ -14,14 +14,14 @@ const App = ({ children }) => {
   return (
     <div>
       <Helmet
-        title="Dev-Stat.us"
+        title="DevStat.io"
         titleTemplate="DevStat - %s"
         meta={[
           { name: 'description', content: 'Identify and Hire top developers - without the hazzle.' },
           { property: 'og:site_name', content: 'DevStat' },
         ]}
         link={[
-          { rel: 'icon', href: '/public/icon.png' }
+          { rel: 'icon', href: '/icon.png' }
         ]}
       />
       <ThemeProvider theme={theme}>
