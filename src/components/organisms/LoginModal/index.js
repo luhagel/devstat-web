@@ -6,6 +6,7 @@ import { Modal, LoginForm } from 'containers'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  border-radius: 4px;
   > * {
     margin-bottom: 0.5rem;
   }
@@ -14,7 +15,8 @@ const Wrapper = styled.div`
 class LoginModal extends Component {
   static propTypes = {
     user: PropTypes.object,
-    onClose: PropTypes.func.isRequired
+    onClose: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired
   }
 
   componentWillReceiveProps(nextProps) {
@@ -28,7 +30,7 @@ class LoginModal extends Component {
     return (
       <Modal title="Login | Register" name="login" closeable {...props}>
         <Wrapper>
-          <LoginForm handleSubmit={this.props.handleSubmit} />
+          <LoginForm handleSubmit={handleSubmit} />
         </Wrapper>
       </Modal>
     )

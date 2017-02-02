@@ -24,7 +24,7 @@ const UserButton = ({ user, onLogin, onLogout, ...props }) => {
           </InnerButton>
         </Button>
       }
-      {!user && <Button {...props} onClick={onLogin}>Sign in</Button>}
+      {!user && <Button transparent palette="white" {...props} onClick={onLogin}>Sign in</Button>}
       <LoginModal />
     </div>
   )

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
 import { IconLink, PrimaryNavigation, Block } from 'components'
+import { UserButton } from 'containers'
 
 const Wrapper = styled(Block)`
   background-color: ${palette('primary', 0)};
@@ -31,6 +32,7 @@ const Header = (props) => {
     <Wrapper {...props}>
       <StyledIconLink to="/" icon="logo" height={100} reverse />
       <StyledPrimaryNavigation />
+      <UserButton />
     </Wrapper>
   )
 }

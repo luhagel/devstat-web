@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import { modalHide, devstatLogin } from 'store/actions'
 import { fromUser } from 'store/selectors'
+
 import { LoginModal } from 'components'
 
 const LoginModalContainer = (props) => {
@@ -14,6 +15,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: () => dispatch(devstatLogin.request()),
   onClose: () => dispatch(modalHide('login'))
 })
 
