@@ -13,3 +13,12 @@ test('modalHide', () => {
     name: 'test'
   })
 })
+
+test('modalToggleContent', () => {
+  expect(actions.modalToggleContent('test', 2)).toEqual({
+    type: actions.MODAL_TOGGLE_CONTENT,
+    name: 'test',
+    contentId: 2
+  })
+})
+

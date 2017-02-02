@@ -1,5 +1,5 @@
 import { initialState } from './selectors'
-import { MODAL_SHOW, MODAL_HIDE } from './actions'
+import { MODAL_SHOW, MODAL_HIDE, MODAL_TOGGLE_CONTENT } from './actions'
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -16,6 +16,14 @@ export default (state = initialState, action) => {
         }
       }
       return initialState
+    case MODAL_TOGGLE_CONTENT:
+      if (action.contentId) {
+        return {
+          ...state,
+          contentId: action.contentId
+        }
+      }
+      return state
     default:
       return state
   }

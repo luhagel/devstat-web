@@ -31,3 +31,9 @@ it('handles MODAL_HIDE', () => {
   expect(reducer(altState, action)).toEqual(initialState)
   expect(reducer(altState, { ...action, name: 'modal1' })).toEqual({ ...altState, modal1: false })
 })
+
+it('handles MODAL_TOGGLE_CONTENT', () => {
+  const action = { type: actions.MODAL_TOGGLE_CONTENT }
+  expect(reducer(initialState, action)).toEqual(initialState)
+  expect(reducer(initialState, { ...action, contentId: 2 })).toEqual({ ...initialState, contentId: 2 })
+})
