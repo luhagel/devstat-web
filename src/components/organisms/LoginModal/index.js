@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import styled from 'styled-components'
 
 import { Modal, LoginForm } from 'containers'
+import { Button } from 'components'
 
 const Wrapper = styled.div`
   display: flex;
@@ -30,7 +31,8 @@ class LoginModal extends Component {
     return (
       <Modal title="Login | Register" name="login" closeable {...props}>
         <Wrapper>
-          <LoginForm handleSubmit={handleSubmit} />
+          <LoginForm />
+          <Button transparent onClick={handleSubmit}>Login</Button>
         </Wrapper>
       </Modal>
     )

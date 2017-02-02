@@ -1,10 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import submit from 'redux-form-submit'
 
-import { modalHide, devstatLogin } from 'store/actions'
+import { modalHide } from 'store/actions'
 import { fromUser } from 'store/selectors'
 
 import { LoginModal } from 'components'
+
+import { config } from './LoginForm'
 
 const LoginModalContainer = (props) => {
   return <LoginModal {...props} />
@@ -15,7 +18,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleSubmit: () => dispatch(devstatLogin.request()),
+  handleSubmit: () => dispatch(submit(config)),
   onClose: () => dispatch(modalHide('login'))
 })
 
