@@ -11,13 +11,15 @@ const InnerButton = styled.div`
 
 const Image = styled.img`
   margin-right: 0.5rem;
+  border: 1px solid white;
+  border-radius: 3px;
 `
 
 const UserButton = ({ user, onLogin, onLogout, ...props }) => {
   return (
     <div>
       {user &&
-        <Button {...props} onClick={onLogout}>
+        <Button transparent palette="white" {...props} onClick={onLogout}>
           <InnerButton>
             <Image src={user.picture} width={20} height={20} />
             Sign out {user.name}
