@@ -10,7 +10,7 @@ export function* devstatLoginAsync() {
       password: 'DEVeriejel3'
     }
     })
-    const user = response.data.user
+    const user = response.data
     yield put(devstatLogin.success({ user }))
   } catch (e) {
     yield put(devstatLogin.failure(e))

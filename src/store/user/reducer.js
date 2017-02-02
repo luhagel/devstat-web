@@ -6,8 +6,8 @@ export default (state = initialState, action) => {
     case DEVSTAT_LOGIN_SUCCESS:
       return {
         ...state,
-        user: action.user.user,
-        auth: action.user.auth
+        user: action.user.user.user, // yes, user.user.user
+        auth: action.user.user.token // don't ask me why
       }
     case DEVSTAT_LOGOUT:
       return {
