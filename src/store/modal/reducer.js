@@ -23,7 +23,10 @@ export default (state = initialState, action) => {
           contentId: action.contentId
         }
       }
-      return state
+      return {
+        ...state,
+        contentId: 0
+      }
     default:
       return state
   }

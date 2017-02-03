@@ -12,9 +12,8 @@ export const modalHide = (name) => ({
   name
 })
 
-export const modalToggleContent = (name, contentId) => ({
+export const modalToggleContent = (contentId) => ({
   type: MODAL_TOGGLE_CONTENT,
-  name,
   contentId
 })
 
