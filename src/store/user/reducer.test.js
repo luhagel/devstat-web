@@ -19,9 +19,8 @@ it('handles USER_LOGIN_SUCCESS', () => {
 })
 
 it('handles USER_REGISTER_SUCCESS', () => {
-  const action = { type: actions.USER_REGISTER_SUCCESS, user: { user: { user: 1, token: 2 } } }
-  expect(reducer(initialState, action)).toEqual({ ...initialState, user: 1, auth: 2 })
-  expect(reducer(altState, action)).toEqual({ ...altState, user: 1, auth: 2 })
+  const action = { type: actions.USER_REGISTER_SUCCESS, user: { user: 1 } }
+  expect(reducer(initialState, action)).toEqual({ ...initialState, user: 1 })
 })
 
 it('handles USER_LOGOUT', () => {
