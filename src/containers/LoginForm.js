@@ -17,9 +17,9 @@ const onSubmit = (values, dispatch) => {
   }
 }
 
-export const config = {
-  form: 'Loginform',
+export const LoginConfig = {
+  form: 'LoginForm',
   onSubmit
 }
 
-export default reduxForm(config)(LoginFormContainer)
+export default reduxForm(LoginConfig)(LoginFormContainer)

@@ -17,6 +17,23 @@ test('userLogin', () => {
   })
 })
 
+test('userRegister', () => {
+  expect(actions.userRegister.request(1)).toEqual({
+    type: actions.USER_REGISTER_REQUEST,
+    options: 1
+  })
+
+  expect(actions.userRegister.success(1)).toEqual({
+    type: actions.USER_REGISTER_SUCCESS,
+    user: 1
+  })
+
+  expect(actions.userRegister.failure('test')).toEqual({
+    type: actions.USER_REGISTER_FAILURE,
+    error: 'test'
+  })
+})
+
 test('userLogout', () => {
   expect(actions.userLogout()).toEqual({ type: actions.USER_LOGOUT })
 })

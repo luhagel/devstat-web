@@ -1,5 +1,5 @@
 import { take, put, call, fork } from 'redux-saga/effects'
-import { userLogin } from './actions'
+import { userLogin, userRegister } from './actions'
 
 import api from '../../services/api'
 
@@ -17,11 +17,33 @@ export function* devstatLoginAsync(options) {
   }
 }
 
+export function* devstatRegisterAsync(options) {
+  try {
+    console.log('sending request...')
+    const response = yield call(api.post, '/users', {
+      name: options.name,
+      email: options.username,
+      password: options.password
+    })
+    const user = response.data
+    console.log(user)
+    yield put(userRegister.success({ user }))
+  } catch (e) {
+    yield put(userRegister.failure(e))
+  }
+}
+
 export function* watchDevstatLogin() {
   const { options } = yield take('USER_LOGIN_REQUEST')
   yield call(devstatLoginAsync, options)
 }
 
+export function* watchDevstatRegister() {
+  const { options } = yield take('USER_REGISTER_REQUEST')
+  yield call(devstatRegisterAsync, options)
+}
+
 export default function* () {
   yield fork(watchDevstatLogin)
+  yield fork(watchDevstatRegister)
 }

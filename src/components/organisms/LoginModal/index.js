@@ -18,7 +18,8 @@ class LoginModal extends Component {
     user: PropTypes.object,
     contentId: PropTypes.number.isRequired,
     onClose: PropTypes.func.isRequired,
-    handleSubmit: PropTypes.func.isRequired,
+    handleLogin: PropTypes.func.isRequired,
+    handleRegister: PropTypes.func.isRequired,
     toggleRegister: PropTypes.func.isRequired,
     toggleLogin: PropTypes.func.isRequired
   }
@@ -30,18 +31,18 @@ class LoginModal extends Component {
   }
 
   render() {
-    const { handleSubmit, toggleRegister, toggleLogin, contentId, ...props } = this.props
+    const { handleLogin, handleRegister, toggleRegister, toggleLogin, contentId, ...props } = this.props
     return (
       <Modal title="Login | Register" name="login" closeable {...props}>
         {contentId === 0 && <Wrapper>
           <LoginForm />
-          <Button transparent onClick={handleSubmit}>Login</Button>
+          <Button transparent onClick={handleLogin}>Login</Button>
           <Button onClick={toggleRegister}>Create a New Account</Button>
         </Wrapper>
           }
         {contentId === 1 && <Wrapper>
           <RegisterForm />
-          <Button transparent onClick={handleSubmit}>Register</Button>
+          <Button transparent onClick={handleRegister}>Register</Button>
           <Button onClick={toggleLogin}>Login Instead</Button>
         </Wrapper>
           }

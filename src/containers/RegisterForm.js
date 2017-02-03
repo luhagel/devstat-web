@@ -3,7 +3,7 @@ import React from 'react'
 import { reduxForm } from 'redux-form'
 import { RegisterForm } from 'components'
 
-import { userLogin } from 'store/actions'
+import { userRegister } from 'store/actions'
 
 const RegisterFormContainer = props => <RegisterForm {...props} />
 
@@ -13,13 +13,14 @@ const onSubmit = (values, dispatch) => {
   } else if (!values.password) {
     throw new Error({ password: 'Please enter your password' })
   } else {
-    dispatch(userLogin.request(values))
+    console.log('dispatching register...')
+    dispatch(userRegister.request(values))
   }
 }
 
-export const config = {
-  form: 'Loginform',
+export const RegisterConfig = {
+  form: 'RegisterForm',
   onSubmit
 }
 
-export default reduxForm(config)(RegisterFormContainer)
+export default reduxForm(RegisterConfig)(RegisterFormContainer)

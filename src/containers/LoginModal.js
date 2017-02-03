@@ -7,7 +7,8 @@ import { fromUser, fromModal } from 'store/selectors'
 
 import { LoginModal } from 'components'
 
-import { config } from './LoginForm'
+import { LoginConfig } from './LoginForm'
+import { RegisterConfig } from './RegisterForm'
 
 const LoginModalContainer = (props) => {
   return <LoginModal {...props} />
@@ -19,7 +20,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleSubmit: () => dispatch(submit(config)),
+  handleLogin: () => dispatch(submit(LoginConfig)),
+  handleRegister: () => dispatch(submit(RegisterConfig)),
   onClose: () => dispatch(modalHide('login')),
   toggleRegister: () => dispatch(modalToggleContent(1)),
   toggleLogin: () => dispatch(modalToggleContent(0))
