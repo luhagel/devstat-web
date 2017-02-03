@@ -19,14 +19,12 @@ export function* devstatLoginAsync(options) {
 
 export function* devstatRegisterAsync(options) {
   try {
-    console.log('sending request...')
     const response = yield call(api.post, '/users', {
       name: options.name,
       email: options.username,
       password: options.password
     })
     const user = response.data
-    console.log(user)
     yield put(userRegister.success({ user }))
   } catch (e) {
     yield put(userRegister.failure(e))

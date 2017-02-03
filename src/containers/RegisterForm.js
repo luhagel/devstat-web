@@ -13,7 +13,6 @@ const onSubmit = (values, dispatch) => {
   } else if (!values.password) {
     throw new Error({ password: 'Please enter your password' })
   } else {
-    console.log('dispatching register...')
     dispatch(userRegister.request(values))
   }
 }
