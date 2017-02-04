@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
@@ -11,7 +11,7 @@ const Wrapper = styled(Block)`
   flex-direction: column;
   align-items: center;
   height: calc(100vh - 3.75rem);
-  max-height: 700px;
+  max-height: 80vh;
   padding: 2rem 6rem;
   box-sizing: border-box;
   text-align: center;
@@ -54,6 +54,11 @@ const Hero = (props) => {
         <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
       </Text>
       <MailingListForm />
+      <StyledButton
+        onClick={props.handleSignup}
+        height={50}
+      >Sign Up to our Newsletter</StyledButton>
+      <Text><strong>- or -</strong></Text>
       <Tooltip data-title="This will open a new tab">
         <StyledButton
           href="http://demo.devstat.io"
@@ -65,6 +70,10 @@ const Hero = (props) => {
       </Tooltip>
     </Wrapper>
   )
+}
+
+Hero.propTypes = {
+  handleSignup: PropTypes.func.isRequired
 }
 
 export default Hero

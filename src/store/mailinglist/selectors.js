@@ -1,7 +1,5 @@
 export const initialState = {
-  mailinglist: null,
-  auth: null
+  mailinglist: false
 }
 
 export const getMailinglist = (state = initialState) => state.mailinglist
-export const getAuth = (state = initialState) => state.auth
