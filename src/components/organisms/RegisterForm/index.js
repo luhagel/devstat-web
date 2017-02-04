@@ -18,7 +18,7 @@ const RegisterForm = () => {
       <Field name="name" label="Name:" component={ReduxField} />
       <Field name="username" label="Email:" component={ReduxField} />
       <Field name="password" label="Password:" type="password" component={ReduxField} />
-      <Field name="password-confirmation" label="Password Confirmation:" type="password" component={ReduxField} />
+      <Field name="passwordConfirmation" label="Password Confirmation:" type="password" component={ReduxField} />
     </Form>
   )
 }
