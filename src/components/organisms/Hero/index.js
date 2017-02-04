@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
 import { Block, Paragraph, Button, Heading, Tooltip } from 'components'
+import { MailingListForm } from 'containers'
 
 
 const Wrapper = styled(Block)`
@@ -52,6 +53,7 @@ const Hero = (props) => {
       <Text>
         <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
       </Text>
+      <MailingListForm />
       <Tooltip data-title="This will open a new tab">
         <StyledButton
           href="http://demo.devstat.io"
