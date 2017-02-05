@@ -20,6 +20,10 @@ const Wrapper = styled(Block)`
   }
 `
 
+const MailingWrapper = styled.div`
+  width: 100%;
+`
+
 const Brand = styled(Heading)`
   font-size: 5em;
 `
@@ -53,12 +57,18 @@ const Hero = (props) => {
       <Text>
         <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
       </Text>
-      <MailingListForm />
-      <StyledButton
-        onClick={props.handleSignup}
-        height={50}
-      >Sign Up to our Newsletter</StyledButton>
-      <Text><strong>- or -</strong></Text>
+      {!props.mailinglist &&
+        <MailingWrapper>
+          <MailingListForm />
+          <StyledButton
+            onClick={props.handleSignup}
+            height={50}
+          >Sign Up to our Newsletter</StyledButton>
+          <Text><strong>- or -</strong></Text>
+        </MailingWrapper>}
+      {props.mailinglist &&
+        <Text>Thanks for your interest, we'll update you once launch draws near!</Text>
+      }
       <Tooltip data-title="This will open a new tab">
         <StyledButton
           href="http://demo.devstat.io"
@@ -73,7 +83,8 @@ const Hero = (props) => {
 }
 
 Hero.propTypes = {
-  handleSignup: PropTypes.func.isRequired
+  handleSignup: PropTypes.func.isRequired,
+  mailinglist: PropTypes.bool.isRequired
 }
 
 export default Hero
