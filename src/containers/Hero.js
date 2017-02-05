@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import submit from 'redux-form-submit'
 
+import { Hero } from 'components'
+
 import { fromMailinglist } from 'store/selectors'
 import { MailinglistConfig } from './MailingListForm'
-
-import { Hero } from 'components'
 
 const HeroContainer = props => <Hero {...props} />
 

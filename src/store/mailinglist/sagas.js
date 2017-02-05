@@ -3,10 +3,11 @@ import { mailinglistRegister } from './actions'
 
 import api from '../../services/api'
 
-export function* devstatRegisterAsync(options) {
+export function* mailinglistRegisterAsync(options) {
   try {
     const response = yield call(api.post, '/mailinglists', {
-      email: options.mailinglistname
+      email: options.email,
+      name: options.name
     })
     const mailinglist = response.data
     yield put(mailinglistRegister.success({ mailinglist }))
@@ -15,11 +16,11 @@ export function* devstatRegisterAsync(options) {
   }
 }
 
-export function* watchDevstatRegister() {
+export function* watchMailinglistRegister() {
   const { options } = yield take('MAILINGLIST_REGISTER_REQUEST')
-  yield call(devstatRegisterAsync, options)
+  yield call(mailinglistRegisterAsync, options)
 }
 
 export default function* () {
-  yield fork(watchDevstatRegister)
+  yield fork(watchMailinglistRegister)
 }
