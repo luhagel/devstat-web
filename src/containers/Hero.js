@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
   handleSignup: () => dispatch(modalShow('mailinglist'))
 })
 
-export default connect(mapDispatchToProps)(HeroContainer)
+export default connect(null, mapDispatchToProps)(HeroContainer)

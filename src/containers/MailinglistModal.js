@@ -18,7 +18,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleSignUp: () => dispatch(submit(MailinglistConfig)),
+  handleSignup: () => dispatch(submit(MailinglistConfig)),
   onClose: () => dispatch(modalHide('mailinglist')),
 })
 
