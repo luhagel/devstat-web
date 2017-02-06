@@ -11,11 +11,8 @@ HeroContainer.propTypes = {
   loading: PropTypes.bool
 }
 
-const mapStateToProps = (state) => ({
-})
-
 const mapDispatchToProps = (dispatch) => ({
   handleSignup: () => dispatch(modalShow('mailinglist'))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeroContainer)
+export default connect(mapDispatchToProps)(HeroContainer)

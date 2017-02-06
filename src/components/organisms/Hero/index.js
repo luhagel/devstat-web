@@ -21,10 +21,6 @@ const Wrapper = styled(Block)`
   }
 `
 
-const MailingWrapper = styled.div`
-  width: 100%;
-`
-
 const Brand = styled.img`
   margin: 40px 0;
 `
