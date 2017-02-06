@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
 import { Block, Paragraph, Button, Heading, Tooltip } from 'components'
-import { MailingListForm } from 'containers'
+import { MailinglistModal } from 'containers'
 
 
 const Wrapper = styled(Block)`
@@ -12,7 +12,8 @@ const Wrapper = styled(Block)`
   align-items: center;
   height: calc(100vh - 3.75rem);
   max-height: 80vh;
-  padding: 2rem 6rem;
+  margin-bottom: 8rem;
+  padding: 8rem 6rem;
   box-sizing: border-box;
   text-align: center;
   @media screen and (max-width: 640px) {
@@ -24,12 +25,13 @@ const MailingWrapper = styled.div`
   width: 100%;
 `
 
-const Brand = styled(Heading)`
-  font-size: 5em;
+const Brand = styled.img`
+  margin: 40px 0;
 `
 
 const Slug = styled(Heading)`
   font-size: 2.5em;
+  color: ${palette('grayscale', 1)};
 `
 
 const Text = styled(Paragraph)`
@@ -51,40 +53,35 @@ const StyledButton = styled(Button)`
 
 const Hero = (props) => {
   return (
-    <Wrapper {...props}>
-      <Brand>DevStat.io</Brand>
-      <Slug level={2}>Hire Top Developers - Without The Hazzle</Slug>
-      <Text>
-        <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
-      </Text>
-      {!props.mailinglist &&
-        <MailingWrapper>
-          <MailingListForm />
-          <StyledButton
-            onClick={props.handleSignup}
-            height={50}
-          >Sign Up to our Newsletter</StyledButton>
-          <Text><strong>- or -</strong></Text>
-        </MailingWrapper>}
-      {props.mailinglist &&
-        <Text>Thanks for your interest, we will update you once launch draws near!</Text>
-      }
-      <Tooltip data-title="This will open a new tab">
+    <div>
+      <Wrapper {...props}>
+        <Slug level={2}>Hire Top Developers - Without The Hazzle</Slug>
+        <Brand src="./branding.svg" />
+        <Text>
+          <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
+        </Text>
         <StyledButton
-          href="http://demo.devstat.io"
+          onClick={props.handleSignup}
           height={50}
-          target="_blank"
-        >
-          Access Demo
-        </StyledButton>
-      </Tooltip>
-    </Wrapper>
+        >Sign Up to our Newsletter</StyledButton>
+        <Text><strong>- or -</strong></Text>
+        <Tooltip data-title="This will open a new tab">
+          <StyledButton
+            href="http://demo.devstat.io"
+            height={50}
+            target="_blank"
+          >
+            Access Demo
+          </StyledButton>
+        </Tooltip>
+      </Wrapper>
+      <MailinglistModal />
+    </div>
   )
 }
 
 Hero.propTypes = {
-  handleSignup: PropTypes.func.isRequired,
-  mailinglist: PropTypes.bool.isRequired
+  handleSignup: PropTypes.func.isRequired
 }
 
 export default Hero

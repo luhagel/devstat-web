@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
-import submit from 'redux-form-submit'
 
 import { Hero } from 'components'
 
-import { fromMailinglist } from 'store/selectors'
-import { MailinglistConfig } from './MailingListForm'
+import { modalShow } from 'store/actions'
 
 const HeroContainer = props => <Hero {...props} />
 
@@ -14,11 +12,10 @@ HeroContainer.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  mailinglist: fromMailinglist.getMailinglist(state)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleSignup: () => dispatch(submit(MailinglistConfig))
+  handleSignup: () => dispatch(modalShow('mailinglist'))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeroContainer)
