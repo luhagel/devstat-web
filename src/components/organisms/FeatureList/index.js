@@ -6,6 +6,7 @@ import { Feature, Heading } from 'components'
 const Grid = styled.div`
   display: flex;
   flex-flow: row wrap;
+  margin-bottom: 8rem;
   & > * {
     width: calc(50% - 2rem);
     @media screen and (max-width: 640px) {
@@ -15,6 +16,7 @@ const Grid = styled.div`
 `
 
 const StyledHeading = styled(Heading)`
+  font-size: 3em;
   text-align: center;
 `
 
@@ -24,7 +26,7 @@ const StyledFeature = styled(Feature)`
 
 const FeatureList = ({ ...props }) => (
   <div {...props}>
-    <StyledHeading>Why Devstat?</StyledHeading>
+    <StyledHeading level={1}>Why Devstat?</StyledHeading>
     <Grid>
       <StyledFeature
         icon="profile"

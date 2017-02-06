@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="560px" height="120px" viewBox="0 0 560 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="512px" height="120px" viewBox="0 0 512 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Logo Raw</title>
+    <title>Logo Navbar inverted</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="7.10542736e-15" width="300" height="120"></rect>
+        <rect id="path-1" x="0" y="7.10542736e-15" width="253" height="120"></rect>
     </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Logo-Raw">
-            <g>
-                <g id="Group">
-                    <rect id="Rectangle-2" fill="#FFFFFF" x="300" y="108" width="260" height="12"></rect>
+        <g id="Logo-Navbar-inverted">
+            <g id="Logo-Raw" transform="translate(0.000000, -7.000000)">
+                <g id="Group" transform="translate(0.000000, 7.000000)">
                     <g id="Dev">
                         <g>
                             <g>
@@ -25,8 +24,8 @@
                         </g>
                     </g>
                 </g>
-                <text id="Stat" font-family="MalayalamSangamMN-Bold, Malayalam Sangam MN" font-size="128" font-weight="bold" fill="#FFFFFF">
-                    <tspan x="304" y="108">Stat</tspan>
+                <text id="Stat" font-family="MalayalamSangamMN-Bold, Malayalam Sangam MN" font-size="144" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="254" y="117">Stat</tspan>
                 </text>
             </g>
         </g>

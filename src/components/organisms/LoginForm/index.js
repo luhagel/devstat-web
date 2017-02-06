@@ -7,9 +7,6 @@ import { Field } from 'redux-form'
 import { ReduxField } from 'components'
 
 const Form = styled.form`
-  border: 1px solid ${palette('primary', 0)};
-  border-radius: 3px;
-  padding: 1em;
 `
 
 const LoginForm = () => {

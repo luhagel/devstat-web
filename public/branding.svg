@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="512px" height="120px" viewBox="0 0 512 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="504px" height="124px" viewBox="0 0 504 124" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
-    <title>Logo Raw</title>
+    <title>Logo Raw Underline</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="7.10542736e-15" width="253" height="120"></rect>
+        <rect id="path-1" x="0" y="0" width="251" height="125"></rect>
     </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Logo-Raw">
-            <g transform="translate(0.000000, -7.000000)">
-                <g id="Group" transform="translate(0.000000, 7.000000)">
+        <g id="Logo-Raw-Underline">
+            <g id="Logo-Raw" transform="translate(0.000000, -5.000000)">
+                <rect id="Rectangle-2" fill="#470068" x="243" y="118" width="265" height="11"></rect>
+                <g id="Group" transform="translate(0.000000, 4.000000)">
                     <g id="Dev">
                         <g>
                             <g>
@@ -18,14 +19,14 @@
                                 </mask>
                                 <use id="Mask" fill="#470068" xlink:href="#path-1"></use>
                                 <text mask="url(#mask-2)" font-family="MyanmarSangamMN-Bold, Myanmar Sangam MN" font-size="144" font-weight="bold" fill="#FFFFFF">
-                                    <tspan x="7" y="110">Dev</tspan>
+                                    <tspan x="3" y="110">Dev</tspan>
                                 </text>
                             </g>
                         </g>
                     </g>
                 </g>
                 <text id="Stat" font-family="MalayalamSangamMN-Bold, Malayalam Sangam MN" font-size="144" font-weight="bold" fill="#470068">
-                    <tspan x="254" y="117">Stat</tspan>
+                    <tspan x="250" y="117">Stat</tspan>
                 </text>
             </g>
         </g>
