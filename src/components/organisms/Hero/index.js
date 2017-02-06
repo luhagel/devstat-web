@@ -67,7 +67,7 @@ const Hero = (props) => {
           <Text><strong>- or -</strong></Text>
         </MailingWrapper>}
       {props.mailinglist &&
-        <Text>Thanks for your interest, we'll update you once launch draws near!</Text>
+        <Text>Thanks for your interest, we will update you once launch draws near!</Text>
       }
       <Tooltip data-title="This will open a new tab">
         <StyledButton
