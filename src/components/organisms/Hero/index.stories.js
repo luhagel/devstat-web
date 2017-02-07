@@ -6,3 +6,7 @@ storiesOf('Hero', module)
   .add('default', () => (
     <Hero />
   ))
+  .add('mailinglist', () => (
+    <Hero mailinglist />
+  ))
+

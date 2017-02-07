@@ -6,7 +6,7 @@ import { Feature, Heading } from 'components'
 const Grid = styled.div`
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: 8rem;
+  margin-bottom: 16rem;
   & > * {
     width: calc(50% - 2rem);
     @media screen and (max-width: 640px) {
