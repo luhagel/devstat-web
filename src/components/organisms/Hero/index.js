@@ -12,7 +12,7 @@ const Wrapper = styled(Block)`
   align-items: center;
   height: calc(100vh - 3.75rem);
   max-height: 80vh;
-  margin-bottom: 8rem;
+  margin-bottom: 16rem;
   padding: 8rem 6rem;
   box-sizing: border-box;
   text-align: center;
@@ -23,6 +23,7 @@ const Wrapper = styled(Block)`
 
 const Brand = styled.img`
   margin: 40px 0;
+  max-width: 100%;
 `
 
 const Slug = styled(Heading)`
@@ -49,32 +50,30 @@ const StyledButton = styled(Button)`
 
 const Hero = (props) => {
   return (
-    <div>
-      <Wrapper {...props}>
-        <Slug level={2}>Hire Top Developers - Without The Hazzle</Slug>
-        <Brand src="./branding.svg" />
-        <Text>
-          <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
-        </Text>
-        <Tooltip data-title="Be in the Know!">
-          <StyledButton
-            onClick={props.handleSignup}
-            height={50}
-          >Sign Up to our Newsletter</StyledButton>
-        </Tooltip>
-        <Text><strong>- or -</strong></Text>
-        <Tooltip data-title="This will open a new tab">
-          <StyledButton
-            href="http://demo.devstat.io"
-            height={50}
-            target="_blank"
-          >
-            Access Demo
-          </StyledButton>
-        </Tooltip>
-      </Wrapper>
+    <Wrapper {...props}>
+      <Slug level={2}>Hire Top Developers - Without The Hazzle</Slug>
+      <Brand src="./branding.svg" />
+      <Text>
+        <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
+      </Text>
+      <Tooltip data-title="Be in the Know!">
+        <StyledButton
+          onClick={props.handleSignup}
+          height={50}
+        >Sign Up to our Newsletter</StyledButton>
+      </Tooltip>
+      <Text><strong>- or -</strong></Text>
+      <Tooltip data-title="This will open a new tab">
+        <StyledButton
+          href="http://demo.devstat.io"
+          height={50}
+          target="_blank"
+        >
+          Access Demo
+        </StyledButton>
+      </Tooltip>
       <MailinglistModal />
-    </div>
+    </Wrapper>
   )
 }
 
