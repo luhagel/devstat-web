@@ -13,8 +13,12 @@ const Nav = styled.nav`
     font-weight: 300;
     color: ${palette('grayscale', 0)};
     font-size: 1.25rem;
+    padding: 5px 10px;
     &.active {
-      text-decoration: underline;
+      border: 1px solid ${palette('grayscale', 0)};
+      border-radius: 3px;
+      color: ${palette('white', 0)};
+      background-color: ${palette('grayscale', 3)};
     }
   }
 `
