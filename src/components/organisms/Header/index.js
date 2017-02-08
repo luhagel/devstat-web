@@ -10,7 +10,6 @@ const Wrapper = styled(Block)`
   display: flex;
   align-items: center;
   padding: 1rem;
-  box-shadow: -1px 0px 2px 2px #666;
 
   & > :not(:first-child) {
     margin-left: 1rem;

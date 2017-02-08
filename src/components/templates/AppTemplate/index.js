@@ -17,7 +17,15 @@ const Header = styled.header`
 `
 
 const Side = styled.aside`
-  max-width: 20%;
+  width: 20%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 998;
+`
+const ContentWrapper = styled.section`
+ width: 80%;
+ margin-left: 20%;
 `
 
 const Content = styled.section`
@@ -29,6 +37,7 @@ const Content = styled.section`
 
 const Footer = styled.footer`
   margin-top: auto;
+  z-index: 999;
 `
 
 const AppTemplate = ({ header, side, children, footer, ...props }) => {
@@ -36,7 +45,9 @@ const AppTemplate = ({ header, side, children, footer, ...props }) => {
     <Wrapper {...props}>
       <Header>{header}</Header>
       {side && <Side>{side}</Side>}
-      <Content>{children}</Content>
+      <ContentWrapper>
+        <Content>{children}</Content>
+      </ContentWrapper>
       <Footer>{footer}</Footer>
     </Wrapper>
   )
