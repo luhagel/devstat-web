@@ -1,9 +1,8 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
 import { Block, Paragraph, Button, Heading, Tooltip } from 'components'
-import { MailinglistModal } from 'containers'
 
 
 const Wrapper = styled(Block)`
@@ -19,11 +18,6 @@ const Wrapper = styled(Block)`
   @media screen and (max-width: 640px) {
     padding: 1rem;
   }
-`
-
-const Brand = styled.img`
-  margin: 40px 0;
-  max-width: 100%;
 `
 
 const Slug = styled(Heading)`
@@ -48,37 +42,20 @@ const StyledButton = styled(Button)`
   flex: none;
 `
 
-const Hero = (props) => {
+const Onboarding = (props) => {
   return (
     <Wrapper {...props}>
-      <Slug level={2}>Hire Top Developers - Without The Hassle</Slug>
-      <Brand src="./branding.svg" />
+      <Slug level={2}> You don&#x27;t have any Teams yet!</Slug>
       <Text>
-        <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
+        Why not change that?
       </Text>
-      <Tooltip data-title="Be in the Know!">
+      <Tooltip data-title="Wohooo!">
         <StyledButton
-          onClick={props.handleSignup}
-          height={50}
-        >Sign Up to our Newsletter</StyledButton>
+          height={60}
+        >Create your first Team!</StyledButton>
       </Tooltip>
-      <Text><strong>- or -</strong></Text>
-      <Tooltip data-title="This will open a new tab">
-        <StyledButton
-          href="http://demo.devstat.io"
-          height={50}
-          target="_blank"
-        >
-          Access Demo
-        </StyledButton>
-      </Tooltip>
-      <MailinglistModal />
     </Wrapper>
   )
 }
 
-Hero.propTypes = {
-  handleSignup: PropTypes.func.isRequired
-}
-
-export default Hero
+export default Onboarding

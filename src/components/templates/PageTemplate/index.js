@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   padding-top: 3.75rem;
