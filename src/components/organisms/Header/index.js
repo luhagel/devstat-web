@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { IconLink, PrimaryNavigation, Block } from 'components'
+import { IconLink, PrimaryNavigation, Block, Tooltip } from 'components'
 import { UserButton } from 'containers'
 
 const Wrapper = styled(Block)`
@@ -32,7 +32,11 @@ const Header = (props) => {
     <Wrapper {...props}>
       <StyledIconLink to="/" icon="logo" height={100} reverse />
       <StyledPrimaryNavigation />
-      {!process.env.LOGIN_DISABLED && <UserButton />}
+      {!process.env.LOGIN_DISABLED &&
+        <Tooltip data-title="In Development" position="left">
+          <UserButton />
+        </Tooltip>
+      }
     </Wrapper>
   )
 }

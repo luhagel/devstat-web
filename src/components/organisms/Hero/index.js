@@ -56,10 +56,12 @@ const Hero = (props) => {
         <Text>
           <strong>DevStat.io</strong> allows you to quickly evaluate the <strong>skills and experience</strong> of your recruitees - no resume needed!
         </Text>
-        <StyledButton
-          onClick={props.handleSignup}
-          height={50}
-        >Sign Up to our Newsletter</StyledButton>
+        <Tooltip data-title="Be in the Know!">
+          <StyledButton
+            onClick={props.handleSignup}
+            height={50}
+          >Sign Up to our Newsletter</StyledButton>
+        </Tooltip>
         <Text><strong>- or -</strong></Text>
         <Tooltip data-title="This will open a new tab">
           <StyledButton
