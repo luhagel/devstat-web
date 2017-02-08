@@ -32,7 +32,7 @@ const Slug = styled(Heading)`
 `
 
 const Text = styled(Paragraph)`
-  color: ${palette('grayscale', 0)}
+  color: ${palette('grayscale', 0)};
   margin: 3rem auto;
   max-width: 800px;
   font-weight: 300;
