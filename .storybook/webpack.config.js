@@ -2,11 +2,13 @@ const baseConfig = require('../webpack/webpack.config')
 
 module.exports = storybookBaseConfig =>
   Object.assign({}, storybookBaseConfig, {
-    resolve: baseConfig.resolve,
+    resolve: {
+      modulesDirectories: baseConfig.resolve.modules
+    },
     entry: Object.assign({}, storybookBaseConfig.entry, {
       preview: ['babel-polyfill'].concat(storybookBaseConfig.entry.preview)
     }),
     module: Object.assign({}, storybookBaseConfig.module, {
-      loaders: storybookBaseConfig.module.loaders.concat(baseConfig.module.loaders)
+      loaders: storybookBaseConfig.module.loaders.concat(baseConfig.module.rules)
     })
   })
