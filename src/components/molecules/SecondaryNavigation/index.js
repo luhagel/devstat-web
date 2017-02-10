@@ -26,7 +26,7 @@ const Nav = styled.nav`
 const SecondaryNavigation = (props) => {
   return (
     <Nav {...props}>
-      <Link to="/" onlyActiveOnindex>Home</Link>
+      <Link to="/">Home</Link>
       <Link to="/app" activeClassName="active">Application</Link>
     </Nav>
   )

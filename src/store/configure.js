@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import { persistStore, autoRehydrate } from 'redux-persist'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
@@ -11,10 +12,15 @@ const configureStore = (initialState, history) => {
 
   const finalCreateStore = compose(
     applyMiddleware(thunk, sagaMiddleware, routerMiddleware(history)),
+    autoRehydrate(),
     hasWindow && window.devToolsExtension ? window.devToolsExtension() : (f) => f
   )(createStore)
 
   const store = finalCreateStore(reducer, initialState)
+
+  persistStore(store, { blacklist: ['someTransientReducer'] }, () => {
+  })
+
   let sagaTask = sagaMiddleware.run(sagas)
 
   if (module.hot) {
