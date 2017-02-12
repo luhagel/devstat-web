@@ -1,47 +1,26 @@
 import { take, put, call, fork } from 'redux-saga/effects'
-import { teamLogin, teamRegister } from './actions'
+import { teamAdd } from './actions'
 
 import api from '../../services/api'
 
-export function* devstatLoginAsync(options) {
+export function* teamAddAsync(options) {
   try {
-    const response = yield call(api.post, '/auth', {}, { auth: {
-      teamname: options.teamname,
-      password: options.password
+    const response = yield call(api.post, '/teams', {}, { auth: {
+      name: options.name
     }
     })
     const team = response.data
-    yield put(teamLogin.success({ team }))
+    yield put(teamAdd.success({ team }))
   } catch (e) {
-    yield put(teamLogin.failure(e))
+    yield put(teamAdd.failure(e))
   }
 }
 
-export function* devstatRegisterAsync(options) {
-  try {
-    const response = yield call(api.post, '/teams', {
-      name: options.name,
-      email: options.teamname,
-      password: options.password
-    })
-    const team = response.data
-    yield put(teamRegister.success({ team }))
-  } catch (e) {
-    yield put(teamRegister.failure(e))
-  }
-}
-
-export function* watchDevstatLogin() {
-  const { options } = yield take('TEAM_LOGIN_REQUEST')
-  yield call(devstatLoginAsync, options)
-}
-
-export function* watchDevstatRegister() {
-  const { options } = yield take('TEAM_REGISTER_REQUEST')
-  yield call(devstatRegisterAsync, options)
+export function* watchTeamAdd() {
+  const { options } = yield take('TEAM_ADD_REQUEST')
+  yield call(teamAddAsync, options)
 }
 
 export default function* () {
-  yield fork(watchDevstatLogin)
-  yield fork(watchDevstatRegister)
+  yield fork(watchTeamAdd)
 }
