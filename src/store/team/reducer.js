@@ -1,24 +1,30 @@
 import { initialState } from './selectors'
-import { TEAM_LOGIN_SUCCESS, TEAM_LOGOUT, TEAM_REGISTER_SUCCESS } from './actions'
+import { TEAM_ADD_SUCCESS, TEAM_INDEX_SUCCESS, TEAM_UPDATE_SUCCESS, TEAM_DELETE_SUCCESS } from './actions'
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TEAM_LOGIN_SUCCESS:
+    case TEAM_ADD_SUCCESS:
       return {
         ...state,
-        team: action.team.team.team, // yes, team.team.team
-        auth: action.team.team.token // don't ask me why
+        teams: [
+          ...state.teams,
+          action.team
+        ]
       }
-    case TEAM_REGISTER_SUCCESS:
+    case TEAM_INDEX_SUCCESS:
       return {
         ...state,
-        team: action.team.team // I should probably rewrite devstat-core
+        teams: action.teams
       }
-    case TEAM_LOGOUT:
+    case TEAM_UPDATE_SUCCESS:
       return {
         ...state,
-        team: initialState.team,
-        auth: initialState.auth
+        teams: action.teams
+      }
+    case TEAM_DELETE_SUCCESS:
+      return {
+        ...state,
+        teams: action.teams
       }
     default:
       return state

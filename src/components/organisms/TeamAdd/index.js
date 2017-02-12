@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
 
-import { Block, Paragraph, Button, Heading, Tooltip } from 'components'
+import { Block, Button, Heading, Tooltip } from 'components'
+import { TeamAddForm } from 'containers'
 
 
 const Wrapper = styled(Block)`
@@ -25,38 +26,27 @@ const Slug = styled(Heading)`
   color: ${palette('grayscale', 1)};
 `
 
-const Text = styled(Paragraph)`
-  color: ${palette('grayscale', 0)};
-  margin: 3rem auto;
-  max-width: 800px;
-  font-weight: 300;
-  font-size: 1.35rem;
-  line-height: 1.35em;
-  letter-spacing: 0.07em;
-  @media screen and (max-width: 640px) {
-    font-size: 1rem;
-  }
-`
-
 const StyledButton = styled(Button)`
   flex: none;
 `
 
-const Onboarding = (props) => {
+const TeamAdd = (props) => {
   return (
     <Wrapper {...props}>
-      <Slug level={2}> You don&#x27;t have any Teams yet!</Slug>
-      <Text>
-        Why not change that?
-      </Text>
+      <Slug level={2}> Add a new Team</Slug>
+      <TeamAddForm />
       <Tooltip data-title="Wohooo!">
         <StyledButton
-          height={60}
-          href="app/teams/add"
-        >Create your first Team!</StyledButton>
+          height={50}
+          href="{props.handleAdd}"
+        >Create!</StyledButton>
       </Tooltip>
     </Wrapper>
   )
 }
 
-export default Onboarding
+TeamAdd.propType = {
+  handleAdd: PropTypes.func.isRequired
+}
+
+export default TeamAdd

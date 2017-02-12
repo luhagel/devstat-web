@@ -28,6 +28,7 @@ const SecondaryNavigation = (props) => {
     <Nav {...props}>
       <Link to="/">Home</Link>
       <Link to="/app" activeClassName="active">Application</Link>
+      <Link to="/app/teams/add" activeClassName="active">New Team</Link>
     </Nav>
   )
 }

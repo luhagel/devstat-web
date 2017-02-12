@@ -1,39 +1,70 @@
 import * as actions from './actions'
 
-test('teamLogin', () => {
-  expect(actions.teamLogin.request(1)).toEqual({
-    type: actions.TEAM_LOGIN_REQUEST,
+test('teamAdd', () => {
+  expect(actions.teamAdd.request(1)).toEqual({
+    type: actions.TEAM_ADD_REQUEST,
     options: 1
   })
 
-  expect(actions.teamLogin.success(1)).toEqual({
-    type: actions.TEAM_LOGIN_SUCCESS,
+  expect(actions.teamAdd.success(1)).toEqual({
+    type: actions.TEAM_ADD_SUCCESS,
     team: 1
   })
 
-  expect(actions.teamLogin.failure('test')).toEqual({
-    type: actions.TEAM_LOGIN_FAILURE,
+  expect(actions.teamAdd.failure('test')).toEqual({
+    type: actions.TEAM_ADD_FAILURE,
     error: 'test'
   })
 })
 
-test('teamRegister', () => {
-  expect(actions.teamRegister.request(1)).toEqual({
-    type: actions.TEAM_REGISTER_REQUEST,
+test('teamIndex', () => {
+  expect(actions.teamIndex.request(1)).toEqual({
+    type: actions.TEAM_INDEX_REQUEST,
     options: 1
   })
 
-  expect(actions.teamRegister.success(1)).toEqual({
-    type: actions.TEAM_REGISTER_SUCCESS,
+  expect(actions.teamIndex.success(1)).toEqual({
+    type: actions.TEAM_INDEX_SUCCESS,
     team: 1
   })
 
-  expect(actions.teamRegister.failure('test')).toEqual({
-    type: actions.TEAM_REGISTER_FAILURE,
+  expect(actions.teamIndex.failure('test')).toEqual({
+    type: actions.TEAM_INDEX_FAILURE,
     error: 'test'
   })
 })
 
-test('teamLogout', () => {
-  expect(actions.teamLogout()).toEqual({ type: actions.TEAM_LOGOUT })
+test('teamUpdate', () => {
+  expect(actions.teamUpdate.request(1)).toEqual({
+    type: actions.TEAM_UPDATE_REQUEST,
+    options: 1
+  })
+
+  expect(actions.teamUpdate.success(1)).toEqual({
+    type: actions.TEAM_UPDATE_SUCCESS,
+    team: 1
+  })
+
+  expect(actions.teamUpdate.failure('test')).toEqual({
+    type: actions.TEAM_UPDATE_FAILURE,
+    error: 'test'
+  })
 })
+
+test('teamDelete', () => {
+  expect(actions.teamDelete.request(1)).toEqual({
+    type: actions.TEAM_DELETE_REQUEST,
+    options: 1
+  })
+
+  expect(actions.teamDelete.success(1)).toEqual({
+    type: actions.TEAM_DELETE_SUCCESS,
+    team: 1
+  })
+
+  expect(actions.teamDelete.failure('test')).toEqual({
+    type: actions.TEAM_DELETE_FAILURE,
+    error: 'test'
+  })
+})
+

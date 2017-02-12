@@ -1,7 +1,5 @@
 export const initialState = {
-  team: null,
-  auth: null
+  teams: []
 }
 
-export const getTeam = (state = initialState) => state.team
-export const getAuth = (state = initialState) => state.auth
+export const getTeams = (state = initialState) => state.teams

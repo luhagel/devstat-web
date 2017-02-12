@@ -4,27 +4,57 @@ import reducer from './reducer'
 
 const altState = {
   ...initialState,
-  team: 5,
-  auth: 4
+  teams: [
+    { name: 'TestTeam1' },
+    { name: 'TestTeam2' },
+    { name: 'TestTeam3' }
+  ]
 }
 
 it('returns the initial state', () => {
   expect(reducer(undefined, {})).toEqual(initialState)
 })
 
-it('handles TEAM_LOGIN_SUCCESS', () => {
-  const action = { type: actions.TEAM_LOGIN_SUCCESS, team: { team: { team: 1, token: 2 } } }
-  expect(reducer(initialState, action)).toEqual({ ...initialState, team: 1, auth: 2 })
-  expect(reducer(altState, action)).toEqual({ ...altState, team: 1, auth: 2 })
+it('handles TEAM_ADD_SUCCESS', () => {
+  const action = { type: actions.TEAM_ADD_SUCCESS, team: { name: 'AddedTeam' } }
+  expect(reducer(initialState, action)).toEqual({ ...initialState, teams: [{ name: 'AddedTeam' }] })
+  expect(reducer(altState, action)).toEqual({ ...altState, teams: [...altState.teams, { name: 'AddedTeam' }] })
 })
 
-it('handles TEAM_REGISTER_SUCCESS', () => {
-  const action = { type: actions.TEAM_REGISTER_SUCCESS, team: { team: 1 } }
-  expect(reducer(initialState, action)).toEqual({ ...initialState, team: 1 })
+it('handles TEAM_INDEX_SUCCESS', () => {
+  const action = { type: actions.TEAM_INDEX_SUCCESS, teams: [{ name: 'IndexTeam1' }] }
+  expect(reducer(initialState, action)).toEqual({ ...initialState, teams: [{ name: 'IndexTeam1' }] })
 })
 
-it('handles TEAM_LOGOUT', () => {
-  const action = { type: actions.TEAM_LOGOUT }
-  expect(reducer(initialState, action)).toEqual(initialState)
-  expect(reducer(altState, action)).toEqual({ ...altState, team: initialState.team, auth: initialState.auth })
+it('handles TEAM_UPDATE_SUCCESS', () => {
+  const action = { type: actions.TEAM_UPDATE_SUCCESS,
+    teams: [
+        { name: 'TestTeam1' },
+        { name: 'TestTeam2' },
+        { name: 'TestTeam4' }
+    ] }
+  expect(reducer(initialState, action)).toEqual({ ...initialState,
+    teams: [{ name: 'TestTeam1' },
+            { name: 'TestTeam2' },
+            { name: 'TestTeam4' }]
+  })
+  expect(reducer(altState, action)).toEqual({ ...altState,
+    teams: [
+    { name: 'TestTeam1' },
+    { name: 'TestTeam2' },
+    { name: 'TestTeam4' }
+    ] })
+})
+
+it('handles TEAM_DELETE_SUCCESS', () => {
+  const action = { type: actions.TEAM_DELETE_SUCCESS,
+    teams: [{ name: 'TestTeam1' },
+            { name: 'TestTeam2' }] }
+  expect(reducer(initialState, action)).toEqual({ ...initialState,
+    teams: [{ name: 'TestTeam1' },
+            { name: 'TestTeam2' }]
+  })
+  expect(reducer(altState, action)).toEqual({ ...altState,
+    teams: [{ name: 'TestTeam1' },
+            { name: 'TestTeam2' }] })
 })
