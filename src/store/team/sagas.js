@@ -5,9 +5,10 @@ import api from '../../services/api'
 
 export function* teamAddAsync(options) {
   try {
-    const response = yield call(api.post, '/teams', {}, { auth: {
-      name: options.name
-    }
+    const response = yield call(api.post, '/teams', {
+      access_token: options.token,
+      name: options.name,
+      members: []
     })
     const team = response.data
     yield put(teamAdd.success({ team }))
