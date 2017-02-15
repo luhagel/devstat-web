@@ -1,13 +1,15 @@
-import { take, put, call, fork } from 'redux-saga/effects'
+import { take, put, call, fork, select } from 'redux-saga/effects'
 import { teamAdd } from './actions'
 
 import api from '../../services/api'
 
+const getUserAuth = (state) => state.user.auth
+
 export function* teamAddAsync(options) {
   try {
-    console.log('adding..')
+    const authToken = yield select(getUserAuth)
     const response = yield call(api.post, '/teams', {
-      access_token: options.token,
+      access_token: authToken,
       name: options.name,
       members: []
     })
