@@ -5,6 +5,7 @@ import api from '../../services/api'
 
 export function* teamAddAsync(options) {
   try {
+    console.log('adding..')
     const response = yield call(api.post, '/teams', {
       access_token: options.token,
       name: options.name,

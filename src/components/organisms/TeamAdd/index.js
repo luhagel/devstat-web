@@ -38,7 +38,7 @@ const TeamAdd = (props) => {
       <Tooltip data-title="Wohooo!">
         <StyledButton
           height={50}
-          href="{props.handleAdd}"
+          onClick={props.handleAdd}
         >Create!</StyledButton>
       </Tooltip>
     </Wrapper>
